@@ -2,6 +2,8 @@ package AC1;
 
 public class Veiculo {
 
+	//atributos que todas as classes tem em comum 
+	
     private String modelo;
     private String placa;
     private String montadora;
@@ -10,6 +12,9 @@ public class Veiculo {
     private int anoFabricacao;
 
     public Veiculo(String modelo, String placa, String montadora, double valor, String cor, int anoFabricacao){
+    	
+    	//inicializando os valores dos atributos atraves do construtor 
+    	
         this.modelo = modelo;
         this.placa = placa;
         this.montadora = montadora;
@@ -17,12 +22,13 @@ public class Veiculo {
         this.cor = cor;
         this.anoFabricacao = anoFabricacao;
     }
+    
     public String getModelo(){
         return modelo;
     }
     public void setModelo(String modelo){
         this.modelo = modelo;
-    } 
+    }
     public String getPlaca(){
         return placa;
     }
@@ -53,16 +59,29 @@ public class Veiculo {
     public void setAnoFabricacao(int anoFabricacao){
         this.anoFabricacao = anoFabricacao;
     }
-
+//boolean para usar os operadores logicos.
     public boolean validarPlaca() {
-        if (placa != null && placa.matches("^[A-Z]{3}[0-9][A-Z][0-9]{2}$")) {
+
+    	// trim() tira espaços em branco, matches verifica se a string atende a um padrão específico.
+    	if (placa != null && placa.trim().matches("^[A-Z]{3}[0-9]{1}[A-Z]{1}[0-9]{2}$")) {
             return true;
         } else {
-            return false;}
+            return false;
         }
-    public String descricao() {
-        return "Modelo: " + modelo + "Placa: " + placa + "Montadora:" + montadora +
-        "Valor: " + valor + "Cor: " + cor + "Ano de fabricação: " + anoFabricacao +
-        ", Validação: " + (validarPlaca() ? "Placa válida" : "Placa inválida");
     }
-}
+
+    
+    public String descricao() {
+        // Retorna uma string com a descrição do carro, incluindo informações sobre o modelo, placa, montadora, valor, cor, ano de fabricação e se a placa é válida ou não
+        return "Modelo: " + modelo +          
+               ", Placa: " + placa +          
+               ", Montadora: " + montadora +  
+               ", Valor: " + valor +         
+               ", Cor: " + cor +           
+               ", Ano de fabricação: " + anoFabricacao +  
+               ", Validação: " + (validarPlaca() ? " Placa válida" : " Placa inválida"); 
+        
+        // Verifica se a placa é válida e adiciona a mensagem correspondente
+    }
+
+    }
