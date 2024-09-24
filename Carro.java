@@ -3,9 +3,9 @@ package AC1;
 public class Carro extends Veiculo{
     private double quantPortas;
     private double potencia;
-    private String tipoCarro; //tipo do carro (sedan, SUV, esportivo, etc)
+    private String tipoCarro; //tipo do carro (sedan, SUV, hatchback, etc)
     private String tipoCambio; //tipo do câmbio (manual, automático)
-    private String tipoCombustivel; 
+    private String tipoCombustivel; //tipo de combustível (gasolina, álcool, flex, etc)
     
     public Carro(String modelo, String placa, String montadora, double valor, String cor, int anoFabricacao,
         double quantPortas, double potencia, String tipoCarro, String tipoCambio, String tipoCombustivel){
@@ -48,8 +48,12 @@ public class Carro extends Veiculo{
     }
     
     public String descricaoCarro() {
-        return super.descricao() + "Quantidade de portas: " + quantPortas + ", Potência: " + potencia + 
-        ", Tipo de carro:" + tipoCarro + ", Tipo de câmbio: " + tipoCambio + ", Tipo de combustível" + tipoCombustivel;
+        return super.descricao() + 
+               ", Quantidade de portas: " + quantPortas + ", " +
+               "Potência: " + potencia + "cv, " +
+               "Tipo de carro: " + tipoCarro + ", " +
+               "Tipo de câmbio: " + tipoCambio + ", " +
+               "Tipo de combustível: " + tipoCombustivel;
     }
     
     public String insert() {
