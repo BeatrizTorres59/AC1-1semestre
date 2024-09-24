@@ -2,19 +2,22 @@ package AC1;
 
 public class Moto extends Veiculo {
     private String cilindradas;
-    private double pesoMoto;
-    private String chassi;
-    private String suspensao;
+    private double pesoMoto;  // peso da moto em kg
+    private String chassi;  // código do chassi da moto
+    private String suspensao;  // tipo de suspensão
 
 
     public Moto(String modelo, String placa, String montadora, double valor, String cor, int anoFabricacao,
         String cilindradas, double pesoMoto, String chassi, String suspensao){
         super(modelo, placa, montadora, valor, cor, anoFabricacao);
+        
         this.cilindradas = cilindradas;
         this.pesoMoto = pesoMoto;
         this.chassi = chassi;
         this.suspensao = suspensao;        
+        
     }
+    
     public String getCilindradas(){
         return cilindradas;
     }
@@ -39,12 +42,19 @@ public class Moto extends Veiculo {
     public void setSuspensao(String suspensao){
         this.suspensao = suspensao;
     }
+    
     public String descricaoMoto() {
-        return super.descricao() + "Cilindradas: " + cilindradas +
-         ", Peso da moto: " + pesoMoto + ", Chassi:" + chassi + ", Suspensão: " + suspensao;
+        return super.descricao() +
+               ", Cilindradas: " + cilindradas + ", " +
+               "Peso da moto: " + pesoMoto + "kg, " +
+               "Chassi: " + chassi + ", " +
+               "Suspensão: " + suspensao;
     }
-
+    
+   // public String insert(). Isso significa que ele é um método público que retornará uma String
     public String insert() {
+    	
+    	//%... é pra indicar um valor a ser inserido, exemplo %s (ser inserido um valor tipo string).
         return String.format("INSERT INTO motos (modelo, placa, montadora, valor, cor, ano_fabricacao, cilindradas, peso, chassi, suspensao) VALUES ('%s', '%s', '%s', %.2f, '%s', %d, '%s', %.2f, '%s', '%s');",
                 getModelo(), getPlaca(), getMontadora(), getValor(), getCor(), getAnoFabricacao(), getCilindradas(), getPesoMoto(), getChassi(), getSuspensao());
     }
