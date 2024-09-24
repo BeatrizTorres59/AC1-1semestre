@@ -4,7 +4,7 @@ public class Caminhao extends Veiculo {
     private double quantEixos;
     private String cargaMaxima;
     private String alturaCarga;  //altura máxima da carga
-    private String tipoCabine;   //tipo da cabine (simples,dupla, leito, etc)
+    private String tipoCabine;   //tipo da cabine (simples, dupla, alta, etc)
     private String tipoCaminhao;  //tipo do caminhão (baú, tanque, truck, etc)
      
     public Caminhao(String modelo, String placa, String montadora, double valor, String cor, int anoFabricacao,
@@ -48,9 +48,11 @@ public void setTipoCaminhao(String tipoCaminhao){
 }
 
 public String descricaoCaminhao() {
-    return super.descricao() + "Quantidade de eixos: " + quantEixos + ", Carga máxima: " + cargaMaxima + 
-    ", Altura máxima da carga:" + alturaCarga + ", Tipo de cabine: " + tipoCabine +
-    ", Tipo de caminhão" + tipoCaminhao;
+    return super.descricao() + 
+               ", Carga máxima: " + cargaMaxima + ", " +
+               "Altura máxima da carga: " + alturaCarga + ", " +
+               "Tipo de cabine: " + tipoCabine + ", " +
+               "Tipo de caminhão: " + tipoCaminhao;
 }
 
 public String insert() {
